@@ -2,10 +2,11 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
+
 class LoginForm(AuthenticationForm):
     class Meta:
         model = User
-        fields = ('username','password')
+        fields = ('username', 'password')
 
     widgets = {
         'username': forms.TextInput(
@@ -27,10 +28,14 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
     widgets = {
-        'username': forms.TextInput(attrs={'placeholder': 'Your username', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
-        'email': forms.EmailInput(attrs={'placeholder': 'Your email address', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
-        'password1': forms.PasswordInput(attrs={'placeholder': 'Your password', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
-        'password2': forms.PasswordInput(attrs={'placeholder': 'Repeat password', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
+        'username': forms.TextInput(
+            attrs={'placeholder': 'Your username', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
+        'email': forms.EmailInput(
+            attrs={'placeholder': 'Your email address', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
+        'password1': forms.PasswordInput(
+            attrs={'placeholder': 'Your password', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
+        'password2': forms.PasswordInput(
+            attrs={'placeholder': 'Repeat password', 'class': 'w-full py-4 px-6 rounded-xl purple-input'}),
     }
 
     def __init__(self, *args, **kwargs):
